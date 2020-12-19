@@ -24,3 +24,8 @@ li{
 li:last-child{
     border-bottom: none;
 }
+
+.todoList{
+    
+    flex-grow: 1;
+}

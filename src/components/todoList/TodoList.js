@@ -2,20 +2,19 @@ import React from 'react'
 import ListItem from '../listItem/ListItem'
 import "./todoList.css"
 
-const TodoList = ({ data }) => {
+const TodoList = ({ data, handler }) => {
 
     const elements = data.map(todo => { 
 
-        const { id, ...todoData } = todo
         return (
-            <li key={ id }>
-                <ListItem {...todoData}/>
+            <li key={ todo.id }>
+                <ListItem {...todo} handler={ handler}/>
                 </li>
         )
     })
 
     return (
-        <div>
+        <div className="todoList">
             <h2>I would like to go to:</h2>
             <ul>
                 { elements }
