@@ -2,23 +2,23 @@ import React from 'react'
 import ListItem from '../listItem/ListItem'
 import "./todoList.css"
 
-const TodoList = () => {
+const TodoList = ({ data }) => {
+
+    const elements = data.map(todo => { 
+
+        const { id, ...todoData } = todo
+        return (
+            <li key={ id }>
+                <ListItem {...todoData}/>
+                </li>
+        )
+    })
+
     return (
         <div>
             <h2>I would like to go to:</h2>
             <ul>
-                <li>
-                    <ListItem city="Lviv"/>
-                </li>
-                <li>
-                    <ListItem city="Odessa"/>
-                </li>
-                <li>
-                    <ListItem city="Kyiv"/>
-                </li>
-                <li>
-                    <ListItem city="Dnepr"/>
-                </li>
+                { elements }
             </ul>
         </div>
     )
